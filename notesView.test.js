@@ -26,11 +26,12 @@ describe('NotesView', () => {
     const buttonEl = document.querySelector('#addNoteButton')
     const textEl = document.querySelector('#text-input')
     //act
-    textEl.value = "help I'm tired yo"
+    note = "help I'm tired yo"
+    textEl.value = note
     buttonEl.click()
     notesView.displayNotes()
     //assert
-    expect(document.querySelector('.note').innerText).toBe(textEl.value)
+    expect(document.querySelector('.note').innerText).toBe(note)
   })
 
   it('adds two notes', () => {

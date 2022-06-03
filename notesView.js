@@ -1,6 +1,7 @@
 class NotesView {
-  constructor(model) {
+  constructor(model, api) {
     this.notesModel = model;
+    this.api = api
     this.maincontainerEl = document.querySelector('#main-container');
 
     this.addNoteButtonEl = document.querySelector('#addNoteButton');
@@ -31,7 +32,14 @@ document.querySelectorAll('.note').forEach(note => {
       this.maincontainerEl.append(noteEl);
       document.querySelector('#text-input').value = ''
     })
-    
+
+    const notesFromBackend = this.api
+    //is it meant to come from loadNotes or setNotes?
+    //can't tell from instructions
+    //in any case, some code needs to be written in the model
+    //for them...I think...
+    // this.maincontainerEl.append(notesFromBackend) 
+
   }
 
 }

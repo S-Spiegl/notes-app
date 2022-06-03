@@ -1,0 +1,23 @@
+const NotesApi = require('./notesApi');
+
+require('jest-fetch-mock').enableFetchMocks()
+
+describe("loadNotes", () => {
+  it("fetches notes from the server", (done) => {
+    const api = new NotesApi();
+
+    fetch.mockResponseOnce(async (request) => {
+      return JSON.stringify(["Take out the bins"]);
+    });
+
+    api.loadNotes((response) => {
+      expect(response[0]).toBe("Take out the bins");
+      //assert on the times called and arguments given to fetch
+      expect(fetch.mock.calls.length).toEqual(1)
+      console.log(fetch.mock.calls)
+      expect(fetch.mock.calls[0][0]).toEqual("http://localhost:3000/notes");
+      done();
+      // how to run the above in chrome tools/the console to see them?
+    });
+  });
+});
