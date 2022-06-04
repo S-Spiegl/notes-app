@@ -3,16 +3,9 @@ class NotesModel {
     this.notes = []
   }
 
-  loadNotes() {
-
-  }
-  //is the above required here?
-  //can't tell from instructions whether I'm 
-  //meant to create a loadNotes or a setNotes in
-  //the model
-
-  setNotes() {
-
+  setNotes(notes) {
+    this.reset();
+    notes.forEach((note) => this.notes.push(note));
   }
 
   getNotes() {
