@@ -4,11 +4,11 @@ const NotesView = require("./notesView")
 
 const notesModel = new NotesModel
 notesModel.addNote('example note')
+const api = new NotesApi()
 const notesView = new NotesView(notesModel, api)
 notesView.displayNotes()
 console.log(notesModel.getNotes())
-const api = new NotesApi()
-api.createNote('hello there!')
+notesView.addNewNote('wtf!')
 api.loadNotes((notes) => {
   notesModel.setNotes(notes)
   notesView.displayNotes();

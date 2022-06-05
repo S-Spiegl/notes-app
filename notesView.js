@@ -16,6 +16,7 @@ class NotesView {
 
   addNewNote(textInput) {
     this.notesModel.addNote(textInput)
+    this.api.createNote(textInput)
     this.displayNotes()
   }
 

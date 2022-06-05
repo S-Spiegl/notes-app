@@ -22,7 +22,7 @@ class NotesApi {
 
   loadNotes(callback) {
     fetch('http://localhost:3000/notes')
-    .then(response => response.json())
+    .then(response => response.json()) 
     .then(data => {
       callback(data)
     });
@@ -58,6 +58,7 @@ class NotesApi {
 // }
 
 createNote(note){
+  console.log('1')
   fetch('http://localhost:3000/notes', {
     method: "POST",
     headers: {
@@ -69,9 +70,7 @@ createNote(note){
 };
 
 
-// curl -XPOST http://localhost:3000/notes 
-//-H 'content-type: application/json' -d '
-//{ "content": "Remember to reflect on my progress this week!" }'
+// curl -XPOST http://localhost:3000/notes -H 'content-type: application/json' -d ' { "content": "Remember to reflect on my progress this week!" }'
 
 module.exports = NotesApi;
 
